@@ -1,0 +1,167 @@
+.signup{
+    width: 100%;
+    height: calc(100vh - 80px);
+     
+
+}
+.signup-container{
+    width: 100%;
+    display: flex;
+    background-color: rgb(240,240, 240);
+}
+
+.signup-form{
+    width: 60%;
+    padding-top: 60px ;
+
+} 
+.signup-form h3{
+    text-align: center;
+    color: #111;
+    font-family: 'Roboto, sans-serif';
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+
+}
+.signup-form input{
+    width: 50%;
+    height: 40px;
+    padding: 10px 20px 10px;
+    font-size: 17px;
+    margin: 16px auto;
+    box-shadow: rgba(0, 0, 0, 0) 0px 20px 20px 0px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    color: #32323d;
+    display: flex;
+    align-items: center;
+
+}
+form{
+    width: 70%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+select{
+    width: 100%;
+    height: 100%;
+}
+.button-div{
+    width: 50%;
+    height: 40px;
+    margin:  20px auto;
+    display: flex;
+}
+.button-div button{
+    width: 50%;
+    height: 100%;
+    margin-right: 10px;
+}
+.already-account{
+    text-align: center;
+    margin: 40px 0;
+}
+.signup-form-button-div{
+    width: 310px;
+    height: 50px;
+    margin: 40px auto;
+
+}
+.signup-form-button{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    background-color: #ef5466;
+    border: 2px solid #ef5466;
+    border-radius: 35px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 30px;
+    cursor: pointer;
+    outline: none;
+
+}
+.signup-banner{
+    width: 40%;
+    height: calc(100vh - 80px);
+    background-position: center;
+    background-size: cover;
+    
+}
+@media screen and (max-width: 1030px){
+    .signup-form{
+        width: 70%;
+        padding-top: 30px ;
+    
+    } 
+    form{
+        width: 75%;
+        height: 60%;
+        margin: 0 auto;
+    }
+    .signup-form input{
+        width: 100%;
+        padding: 10px 10px 10px;
+    
+    }
+   
+    .button-div{
+        width: 75%;
+        height: 40px;
+    }
+    .button-div button{
+        width: 100%;
+        height: 100%;
+        margin: 0 6px;
+    }
+}
+@media screen and (max-width: 750px){
+    .signup-form{
+        width: 100%;
+        padding-top: 10px ;
+    
+    } 
+    form{
+        width: 75%;
+        height: 60%;
+        margin: 0 auto;
+    }
+    .signup-form input{
+        width: 100%;
+    
+    }
+   .signup-banner{
+       display: none;
+    
+    }
+    .button-div{
+        width: 40%;
+        height: 90px;
+        display: block;
+    }
+    .signup-button-media-div{
+        margin-bottom: 13px;
+
+    }
+    .button-div button{
+        width: 100%;
+        height: 50%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 500px){
+    .signup-container{
+        min-height: 100vh;
+    }
+    .signup-form-button-div{
+        width: 80%;
+        height: 50px;
+
+    }
+}
+

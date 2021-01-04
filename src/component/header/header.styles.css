@@ -1,0 +1,91 @@
+.header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.header-container{
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.33;
+    display: flex;
+    justify-content: space-between;
+}
+.account-button{
+    width: 97px;
+    height: 40px;
+    background-color: #fff;
+    color: #2d96c8;
+    border: 1px solid #2d96c8;
+    padding: 8px 24px;
+    border-radius: 35px;
+    font-size: 14px;
+    font-family: 'Roboto, sans-serif';
+    outline: none;
+
+
+}
+.account-button a{
+    color: #2d96c8;
+
+}
+.inverted{
+    background-color: #2d96c8;
+    margin-left: 15px;
+    outline: none;
+}
+
+.inverted a{
+    color: #fff;
+}
+
+.toggle-nav{
+    right: 0;
+    position: relative;
+    display: none;
+
+}
+.cross-toggle-nav .bar-1 {
+    transform: translateY(12px) rotate(45deg);
+
+}
+.cross-toggle-nav .bar-2 {
+    opacity: 0;
+
+}
+.cross-toggle-nav .bar-3 {
+    transform: translateY(-10px) rotate(-45deg);
+
+}
+@media screen and (max-width: 1000px){
+    .header-icon{
+        margin: 0 auto;
+    }
+    .account-button{
+        display: none;
+    
+    
+    }
+    .toggle-nav{
+        display: block;
+    
+    }
+}
+.nav-toggle-bar{
+    display: none;
+    width: 36px;
+    height: 27px;
+    cursor: pointer;
+    display: inline-block;
+}
+.nav-toggle-bar:hover{
+   opacity: 0.6;
+}
+.nav-toggle-bar span{
+    display: block;
+    width: 36px;
+    height: 4px;
+    background-color: #111;
+    margin: 7px 0;
+    line-height: 1.5;
+}
