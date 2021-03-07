@@ -1,0 +1,48 @@
+.header-div{
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+   
+
+}
+.user-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: blue;
+    cursor: pointer;
+    float: right;
+    margin-right: 60px;
+    line-height: 56px;
+}
+.side-bar-div{
+    width: 80%;
+    margin: 0 auto;
+}
+.user-toggle-menu{
+    position: absolute;
+    width: 160px;
+    height: 30px;
+    padding: 20px;
+    top: 60px;
+    right: 0px;
+    z-index: 5;
+    text-align: left;
+    color: #111;
+    border: 1px solid #111;
+    
+}
+.user-toggle-menu:hover{
+   background-color: #eaeaea;
+   border: 1px solid #eaeaea;
+    color: #111;
+    
+}
+.user-toggle-menu div{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    
+}

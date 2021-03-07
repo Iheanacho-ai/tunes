@@ -1,0 +1,27 @@
+.genre-categories-playlist{
+   position: relative; 
+}
+.genre-categories-playlist-side-bar{
+    width: 85%;
+    right: 0;
+    position: absolute;
+
+}
+.genre-categories-playlist-side-bar-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.genre-categories-side-bar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin: 30px 0;
+    border-spacing: 1px solid red;
+}
+.genre-categories-side-bar div{
+    width: 100%;
+}

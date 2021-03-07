@@ -1,0 +1,46 @@
+.genre-categories-playlist-songs-side-bar{
+    width: 87%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.genre-categories-playlist-songs-header{
+    width: 100%;
+    height: 250px;
+    background-color: #101011;
+}
+.genre-categories-playlist-songs-header-container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.genre-categories-playlist-songs-header-image{
+    width: 220px;
+    height: 85%;
+    border: 1px solid red;
+    margin-left: 40px;
+    
+}
+.genre-categories-playlist-songs-description{
+    width: 60%;
+    height: 60%;
+    border: 1px solid red;
+    margin-right: 70px;
+}
+.genre-categories-playlist-songs-songs{
+    width: 100%;
+    height: 100%;
+}
+.genre-categories-playlist-songs-songs-container{
+    width: 96%;
+    margin: 20px auto;
+}
+.genre-categories-playlist-songs-song{
+    width: 100%;
+    height: 50px;
+    background-color: red;
+}

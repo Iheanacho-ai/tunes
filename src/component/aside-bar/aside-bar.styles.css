@@ -1,0 +1,51 @@
+.aside-bar{
+    box-sizing: border-box;
+    height: 100%;
+    width: 13%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    
+
+   
+}
+.aside-bar h2{
+    text-align: center;
+   
+}
+.aside-bar-container{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside-bar-div {
+    width: 100%;
+    height: 60px;
+
+    
+}
+.aside-bar-div a {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Nunito, sans-serif';
+    color: #191919;
+
+    
+}
+.search-input-container{
+    width: 100%;
+    height: 22px;
+}
+.search-input{
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    box-sizing: border-box; 
+    outline: none;
+}

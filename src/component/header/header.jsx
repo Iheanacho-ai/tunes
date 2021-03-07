@@ -14,7 +14,7 @@ const Header = () => {
     return(
         <div className = 'header'>
             <div className = 'header-container'>
-                <div className = 'header-icon'>TUNES</div>
+                <div className = 'header-icon'>tunes</div>
                 <div>
                     <button className = 'account-button'>
                         <Link to = 'signin' >Log in</Link>

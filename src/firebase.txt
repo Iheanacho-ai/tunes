@@ -1,0 +1,31 @@
+
+        song: genrePlaylistSongsResponse.items.track.name,
+        artistName: genrePlaylistSongsResponse.items.track.artist[0].name,
+        songImage: genrePlaylistSongsResponse.items.track.album.images[0].url,
+        song: genrePlaylistSongsResponse.items.track.external_urls,
+        duration: genrePlaylistSongsResponse.items.track.duration
+
+
+{
+                    props.genreCategoriesPlaylist.map(({id, name, images }) => (
+                        <div className = 'side-bar' key ={id} >
+                            <div className ='genre-box' id = {id} style= {{ backgroundImage: `url(${images[0].url})`}} onClick= { props.getGenreSongs } >
+                                <p className= 'genre-p'>{name}</p>
+                            </div>
+                        </div>
+
+                    ))
+                }
+                
+
+                {
+                    props.genreCategories.map(({id, name, icons }) => (
+                        <div className = 'side-bar' key ={id} >
+                            <div className ='genre-box' id = {id} style= {{ backgroundImage: `url(${icons[0].url})`}} onClick= { props.getGenreSongs } >
+                                <p className= 'genre-p'>{name}</p>
+                            </div>
+                        </div>
+
+                    ))
+                }
+

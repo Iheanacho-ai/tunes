@@ -9,7 +9,7 @@ const LandingPage = () => (
        <div className = 'landing-page-container' >
             <div className = 'landing-page-info'>
                 Listen to millions of songs on the go!
-                <button className = 'landing-page-button'>Okay! Let's Go</button>
+                <button className = 'landing-page-button'>Sign up for free</button>
             </div>
         </div>
         <Pricing/>
