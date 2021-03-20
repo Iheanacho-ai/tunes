@@ -6,13 +6,17 @@
     align-items: center;
     position: absolute;
 }
+.genre-categories-playlist-songs-side-bar-div{
+    width: 100%
+}
 .genre-categories-playlist-songs-header{
     width: 100%;
     height: 250px;
     background-color: #101011;
 }
 .genre-categories-playlist-songs-header-container{
-    width: 80%;
+    width: 78%;
+    margin: 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -21,26 +25,90 @@
 .genre-categories-playlist-songs-header-image{
     width: 220px;
     height: 85%;
-    border: 1px solid red;
     margin-left: 40px;
+    background-size: cover;
+    background-position: center;
     
 }
 .genre-categories-playlist-songs-description{
     width: 60%;
     height: 60%;
-    border: 1px solid red;
     margin-right: 70px;
+    color: #fff;
+    font-size: 26px;
 }
-.genre-categories-playlist-songs-songs{
+.genre-categories-playlist-songs-box{
     width: 100%;
-    height: 100%;
 }
 .genre-categories-playlist-songs-songs-container{
     width: 96%;
     margin: 20px auto;
 }
 .genre-categories-playlist-songs-song{
-    width: 100%;
+    width: 85%;
+    padding: 0 10px;
+    margin: 0 auto;
     height: 50px;
-    background-color: red;
+    border: 1px solid #777778;
+    display: flex;
+    align-items: center;
+}
+.mobile-songs-container{
+    display: none;
+}
+.track-name{
+    width: 40%;
+}
+.play-icon{
+    font-size: 28px;
+    color: #777778;
+    cursor: pointer;
+}
+.track-artiste{
+    width: 50%;
+    text-align: right;
+}
+.music-div{
+    width: 87%;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+
+@media screen and (max-width: 800px){
+    .genre-categories-playlist-songs-header{
+        height: 450px;
+        display: flex;
+        align-items: center;
+    }
+    .genre-categories-playlist-songs-header-container{
+        width: 80%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+    .genre-categories-playlist-songs-header-image{
+        width: 150px;
+        height: 150px;
+        margin-left: 0;
+        
+    }
+    .genre-categories-playlist-songs-description{
+        width: 80%;
+        margin-right: 0px;
+        text-align: center;
+    }
+    .genre-categories-playlist-songs-songs-container{
+        display: none;
+    }
+    .mobile-songs-container{
+        display: flex;
+        justify-content: center;
+
+    }
+    .mobile-songs-description{
+        display: flex;
+        flex-flow: column;
+    }
 }

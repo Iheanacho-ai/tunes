@@ -1,5 +1,13 @@
+import ReactDOM from 'react-dom';
 import React,{ useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+
+
 import Header from './component/header/header';
 import LandingPage from './pages/landing-page/landing-page';
 import SignInPage from './pages/signin-page/signin-page';
@@ -13,12 +21,16 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import './App.css';
 
+library.add(fab, faPlayCircle);
+
+
 const App = () => { 
   const [currentUser, setCurrentUser ] = useState(null);
   const [token, setToken ] = useState('');
   const [ genreCategories, setGenreCategories ] = useState(null);
   const [genreCategoriesPlaylist, setGenreCategoriesPlaylist ] = useState(null);
   const [genreCategoriesPlaylistSongs, setGenreCategoriesPlaylistSongs ] = useState(null);
+  const [ playASong, setPlayASong ] = useState(null);
 
   const clientID = '1fd358f724e042788ce8e3cc381b552f';
   const clientSecret = 'db78ee8fc24241f7910d939e59e4feb1';
@@ -78,6 +90,7 @@ const App = () => {
         setGenreCategories(genreResponse.categories.items);
 
 
+
                 
         
     };
@@ -85,6 +98,9 @@ const App = () => {
     getToken();
       
   }, [])
+
+
+
 
 
 
@@ -98,12 +114,12 @@ const App = () => {
         method: 'GET',
         headers: {
         'Authorization': 'Bearer ' + token
-
         }
     });
 
     const genreSongsResponse = await genreSongs.json();
     setGenreCategoriesPlaylist(genreSongsResponse.playlists.items);
+   
           
   }
 
@@ -113,9 +129,8 @@ const App = () => {
 
     const trackId = e.target.id;
     const playlistObject = genreCategoriesPlaylist.find(item => item.id === trackId);
-    console.log(playlistObject.name + 'name');
-    console.log(playlistObject.images[0].url);
-    console.log(playlistObject + 'object');
+
+
     
 
     const genrePlaylistSongs = await fetch(`https://api.spotify.com/v1/playlists/${playlistObject.id}/tracks?limit=20`,{
@@ -123,23 +138,49 @@ const App = () => {
       method: 'GET',
       headers: {
       'Authorization': 'Bearer ' + token
-
       }
     })
 
+
+
+
     const genrePlaylistSongsResponse = await genrePlaylistSongs.json();
-    console.log(genrePlaylistSongsResponse );
-    console.log(genrePlaylistSongsResponse.items + 'songs')
-   
+
+
     setGenreCategoriesPlaylistSongs({
       name: playlistObject.name,
-      image: playlistObject.images[0].url
+      image: playlistObject.images[0].url,
+      items: genrePlaylistSongsResponse.items
       
-    });
+    }); 
 
-    console.log(GenreCategoriesPlaylistSongs);
+   
 
   }
+
+
+  const SearchMusic = async () => {
+
+    const searchResponse = await fetch(`https://api.spotify.com/v1/search?q=search&type=track%2Cartist&market=US&limit=10&offset=5`, {
+      method: 'GET',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
+    }) 
+
+
+  }
+
+  
+  const PlayMusic = (e) => {
+    
+    const musicId = e.target.id;
+    const musicObject = genreCategoriesPlaylistSongs.items.find(item => item.track.id === musicId);
+    setPlayASong(musicObject,'musicObject' );
+
+
+  }
+
 
   
   
@@ -157,7 +198,7 @@ const App = () => {
       <Route exact path  = '/signup' render={() => currentUser ? (<Redirect to= '/explore' />) : ( <SignUpPage/> )} />
       <Route exact path = '/explore' component= {() => <Explore genreCategories = {genreCategories} getGenrePlaylist = {getGenrePlaylist}/> } />
       <Route exact path = '/genre-playlist' component= {() => <GenreCategoriesPlaylist genreCategoriesPlaylist = {genreCategoriesPlaylist} getGenrePlaylistSongs= {getGenrePlaylistSongs} /> } />
-      <Route exact path = '/genre-playlist/songs' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} /> } />
+      <Route exact path = '/genre-playlist/songs' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} PlayMusic= {PlayMusic} playASong = {playASong} /> } />
       <Route exact path = '/discover' component = { Discover} />
 
     

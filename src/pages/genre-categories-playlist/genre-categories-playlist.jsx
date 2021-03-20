@@ -6,7 +6,6 @@ import Spinner from '../../component/spinner/spinner';
 import './genre-categories-playlist.styles.css';
 
 const GenreCategoriesPlaylist = (props) => {
-    console.log(props);
     return(
         <div className ='genre-categories-playlist' >
             <div className = 'genre-categories-playlist-aside-bar-div'>
@@ -23,7 +22,7 @@ const GenreCategoriesPlaylist = (props) => {
                         <div className ='genre-categories-side-bar' >
                             {
                                 props.genreCategoriesPlaylist.map(({id, images, name }) => (
-                                    <div className = 'side-bar' key ={id} >
+                                    <div className = 'playlist-side-bar' key ={id} >
                                         <Link to = '/genre-playlist/songs'>
                                             <div className ={ `genre-box ${ name}`} id = {id} style= {{ backgroundImage: `url(${images[0].url})`}} onClick= {props.getGenrePlaylistSongs } ></div>
                                             

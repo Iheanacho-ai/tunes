@@ -46,3 +46,12 @@
     cursor: pointer;
     
 }
+
+@media screen and (max-width: 800px){
+    .header-div{
+        border-bottom: none;
+       
+    
+    }
+
+}

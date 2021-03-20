@@ -25,3 +25,22 @@
 .genre-categories-side-bar div{
     width: 100%;
 }
+
+
+@media screen and (max-width: 800px){
+    .genre-categories-side-bar{
+        display: block;
+        
+    }
+    .genre-categories-side-bar div{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .playlist-side-bar{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    
+}

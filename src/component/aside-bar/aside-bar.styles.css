@@ -49,3 +49,42 @@
     box-sizing: border-box; 
     outline: none;
 }
+@media screen and (max-width: 800px){
+    .aside-bar{
+        border: 1px solid #eee;
+        
+    
+       
+    }
+
+    
+    .mobile-toggle{
+        display: none;
+        z-index: 999;
+    }
+
+    .mobile-side-bar{
+        width: 290px;
+        background-color:#eee;
+        left: 0px;
+        bottom: 0px;
+        top: 58px;
+        position: fixed;
+        height: 100%;
+    }
+
+    
+    .search-input-container{
+        width: 80%;
+        margin: 0 auto;
+        height: 22px;
+    }
+
+    .aside-bar-div {
+        width: 80%;
+        margin: 0 auto;
+    
+        
+    }
+
+}

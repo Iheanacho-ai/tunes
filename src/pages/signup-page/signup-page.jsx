@@ -48,7 +48,7 @@ class SignUp extends React.Component{
                         <h3>Let's sign you up!</h3>
                         <form onSubmit = { this.handleSubmit }>
     
-                            <div className = 'signup-button-media-div button-div'>
+                            <div className = 'signup-button-div button-div'>
                                 <button className = 'facebook-btn'>Facebook</button>
                                 <button className = 'google-btn' onClick = { signInWithGoogle }>Google</button>
                             </div>
