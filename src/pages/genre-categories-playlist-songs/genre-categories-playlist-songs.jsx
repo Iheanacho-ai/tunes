@@ -15,7 +15,7 @@ const GenreCategoriesPlaylistSongs = ({genreCategoriesPlaylistSongs, PlayMusic, 
     return(
         <div className ='genre-categories-playlist-songs' >
             <div className = 'genre-categories-playlist-songs-aside-bar-div'>
-                <AsideBar getDeezer />
+                <AsideBar />
             </div>
             
             <div className ='genre-categories-playlist-songs-side-bar' >
@@ -44,15 +44,7 @@ const GenreCategoriesPlaylistSongs = ({genreCategoriesPlaylistSongs, PlayMusic, 
 
                                                 </div>
 
-                                                <div className = 'mobile-songs-container' > 
-                                                    <div className = 'mobile-songs-description'>
-                                                        <h3>{track.name}</h3>
-                                                        <div>{track.artists[0].name}</div>
-                                                    </div>
-
-                                                    <div className= 'play-icon'><FontAwesomeIcon icon="play-circle" id= {track.id}  onClick = {PlayMusic} /></div>
-
-                                                </div>
+                                               
                                             </div>
                                         ))}
                                     </div> 

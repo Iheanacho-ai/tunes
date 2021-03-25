@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React,{ useState, useEffect } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Link } from 'react-router-dom';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,6 +15,7 @@ import SignUpPage from './pages/signup-page/signup-page';
 import Explore from './pages/explore/explore';
 import GenreCategoriesPlaylist from './pages/genre-categories-playlist/genre-categories-playlist';
 import GenreCategoriesPlaylistSongs from './pages/genre-categories-playlist-songs/genre-categories-playlist-songs';
+import SongDisplay from './pages/songs-display/songs-display';
 import Discover from './pages/discover/discover';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -31,9 +32,11 @@ const App = () => {
   const [genreCategoriesPlaylist, setGenreCategoriesPlaylist ] = useState(null);
   const [genreCategoriesPlaylistSongs, setGenreCategoriesPlaylistSongs ] = useState(null);
   const [ playASong, setPlayASong ] = useState(null);
+  const [songs, setSongs ] = useState(null);
 
   const clientID = '1fd358f724e042788ce8e3cc381b552f';
   const clientSecret = 'db78ee8fc24241f7910d939e59e4feb1';
+  const location = window.location;
 
 
     let unsubscribeFromAuth = null
@@ -158,18 +161,36 @@ const App = () => {
 
   }
 
+  const searchMusic = async (e, value) => {
+    if(e.charCode === 13){
+      console.log('enter');
+      const searchResponse = await fetch(`https://api.spotify.com/v1/search?q=${value}&type=track%2Cartist&market=US&limit=10&offset=5`, {
+        method: 'GET',
+        headers: {
+        'Authorization': 'Bearer ' + token
+        }
+      })
 
-  const SearchMusic = async () => {
+      const searchResponseData = await searchResponse.json();
+      setSongs({
+        artists: searchResponseData.artists.items,
+        tracks: searchResponseData.tracks.items
+      })
+      console.log(searchResponseData);
 
-    const searchResponse = await fetch(`https://api.spotify.com/v1/search?q=search&type=track%2Cartist&market=US&limit=10&offset=5`, {
-      method: 'GET',
-      headers: {
-      'Authorization': 'Bearer ' + token
-      }
-    }) 
+
+      window.location.href = `${location}/songs`;
+
+
+    }
+   
+
+
 
 
   }
+
+  useEffect(() => console.log(songs), [songs]);
 
   
   const PlayMusic = (e) => {
@@ -196,9 +217,10 @@ const App = () => {
       <Route exact path = '/' component = { LandingPage} />
       <Route exact path = '/signin' render={() => currentUser ? (<Redirect to= '/explore' />) : ( <SignInPage/> )} />
       <Route exact path  = '/signup' render={() => currentUser ? (<Redirect to= '/explore' />) : ( <SignUpPage/> )} />
-      <Route exact path = '/explore' component= {() => <Explore genreCategories = {genreCategories} getGenrePlaylist = {getGenrePlaylist}/> } />
-      <Route exact path = '/genre-playlist' component= {() => <GenreCategoriesPlaylist genreCategoriesPlaylist = {genreCategoriesPlaylist} getGenrePlaylistSongs= {getGenrePlaylistSongs} /> } />
-      <Route exact path = '/genre-playlist/songs' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} PlayMusic= {PlayMusic} playASong = {playASong} /> } />
+      <Route exact path = '/explore' component= {() => <Explore genreCategories = {genreCategories} getGenrePlaylist = {getGenrePlaylist} searchMusic ={searchMusic} /> } />
+      <Route exact path = '/genre-playlist' component= {() => <GenreCategoriesPlaylist genreCategoriesPlaylist = {genreCategoriesPlaylist} getGenrePlaylistSongs= {getGenrePlaylistSongs} searchMusic ={searchMusic} /> } />
+      <Route exact path = '/:location/songs' component= {() => <SongDisplay songs={songs} PlayMusic= {PlayMusic}/> } />
+      <Route exact path = '/genre-playlist/playlist' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} PlayMusic= {PlayMusic} playASong = {playASong} searchMusic ={searchMusic} /> } />
       <Route exact path = '/discover' component = { Discover} />
 
     

@@ -10,7 +10,7 @@ const Explore = (props) => {
     return(
     <div className ='explore' >
         <div className = 'explore-aside-bar-div'>
-            <AsideBar getDeezer />
+            <AsideBar searchMusic = {props.searchMusic} />
         </div>
         
         <div className ='explore-side-bar' >

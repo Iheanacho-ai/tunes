@@ -22,3 +22,26 @@
     width: 30%;
     text-align: center;
 }
+
+
+@media screen and (max-width: 800px){
+
+    .music-image{
+        display: none;
+    }
+    audio{
+        width: 160px;
+        height: 34px;
+        right: 3px;
+        position: absolute;
+    }
+    .music-name{
+        width: 45%;
+        text-align: left;
+        margin-left: 6px;
+    }
+
+    
+    
+    
+}

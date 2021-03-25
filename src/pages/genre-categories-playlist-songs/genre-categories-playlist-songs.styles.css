@@ -77,10 +77,13 @@
 
 
 @media screen and (max-width: 800px){
+    .genre-categories-playlist-songs-side-bar{
+        width: 80%;
+    }
     .genre-categories-playlist-songs-header{
-        height: 450px;
+        height: 320px;
         display: flex;
-        align-items: center;
+        padding-top: 30px;
     }
     .genre-categories-playlist-songs-header-container{
         width: 80%;
@@ -99,8 +102,8 @@
         margin-right: 0px;
         text-align: center;
     }
-    .genre-categories-playlist-songs-songs-container{
-        display: none;
+    .genre-categories-playlist-songs-song{
+        height: 100px;
     }
     .mobile-songs-container{
         display: flex;

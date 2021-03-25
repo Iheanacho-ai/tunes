@@ -51,7 +51,7 @@
 }
 @media screen and (max-width: 800px){
     .aside-bar{
-        border: 1px solid #eee;
+        width: 20%;
         
     
        
@@ -60,16 +60,17 @@
     
     .mobile-toggle{
         display: none;
-        z-index: 999;
     }
 
     .mobile-side-bar{
         width: 290px;
-        background-color:#eee;
+        background-color:#191919;
+        color: #fff;
         left: 0px;
         bottom: 0px;
         top: 58px;
-        position: fixed;
+        position: absolute;
+        z-index: 999;
         height: 100%;
     }
 

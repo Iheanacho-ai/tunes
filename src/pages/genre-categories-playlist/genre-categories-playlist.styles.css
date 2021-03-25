@@ -29,12 +29,9 @@
 
 @media screen and (max-width: 800px){
     .genre-categories-side-bar{
+        width: 80%;
         display: block;
         
-    }
-    .genre-categories-side-bar div{
-        width: 80%;
-        margin: 0 auto;
     }
 
     .playlist-side-bar{

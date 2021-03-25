@@ -1,0 +1,38 @@
+.songs-display-sidebar{
+    width: 80%;
+    right: 0;
+    position: absolute;
+}
+.songs-display-asidebar-container{
+    width: 90%;
+    margin: 0 auto;
+}
+.songs-display-header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border: 1px solid #eaeaea;
+
+}
+.songs-display-header p a{
+    color: #101011;
+    padding-bottom: 16px;
+    margin: 0 40px;
+
+    
+}
+.song{
+    display: flex;
+    border: 1px solid #eaeaea;
+    align-items: center;
+}
+.singers{
+    display: flex;
+    flex-flow: column;
+}
+.singers-image{
+    border: 1px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
