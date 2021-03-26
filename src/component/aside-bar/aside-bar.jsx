@@ -7,10 +7,8 @@ const AsideBar = (props) => {
 
 
 
-    const [hidden, setHidden ] = useState(true);
     const [searchValue, setSearchValue ] = useState('');
     
-    const toggleMenuNav = () => setHidden(!hidden );
 
     const handleChange = e => {
         const { value } = e.target;
@@ -25,20 +23,14 @@ const AsideBar = (props) => {
     
     return(
         <div className = 'aside-bar'>
-            <div className= 'toggle-nav' onClick = { toggleMenuNav } >
-                <div className= {`${hidden ? null : 'cross-toggle-nav' } nav-toggle-bar`}>
-                    <span className = 'bar-1' ></span>
-                    <span className = 'bar-2'></span>
-                    <span className = 'bar-3'></span>
-                </div>
-            </div>
+           
 
-            <div className= {`${hidden ? 'mobile-toggle' : null } mobile-side-bar`}>
+            <div className='mobile-toggle' >
                 <h2>tunes</h2>
-                    <div className = 'search-input-container'><input type="text" name="search"  value ={searchValue} onChange = {handleChange} onKeyPress = {(e) => props.searchMusic(e, searchValue)} /></div>
+                    <div className = 'search-input-container'><input type="text" name="search" placeholder = 'Search for songs, artistes' value ={searchValue} onChange = {handleChange} onKeyPress = {(e) => props.searchMusic(e, searchValue)} /></div>
                 <div className = 'aside-bar-container'>
                 
-                    <div className = 'aside-bar-div' ><Link to ='/listen' >Listen </Link></div>
+                    <div className = 'aside-bar-div' ><Link to ='/explore' >Explore </Link></div>
                     <div className = 'aside-bar-div'><Link>Favourite</Link></div>
                 </div>
             </div>

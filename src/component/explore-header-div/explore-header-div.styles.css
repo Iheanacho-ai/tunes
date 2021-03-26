@@ -6,6 +6,9 @@
    
 
 }
+.search-mobile-input{
+    display: none;
+}
 .user-image{
     width: 50px;
     height: 50px;
@@ -50,8 +53,23 @@
 @media screen and (max-width: 800px){
     .header-div{
         border-bottom: none;
+        display: flex;
        
     
+    }
+    .search-mobile-input{
+        display: block;
+        width: 70%;
+        height: 100%;
+        padding: 15px;
+        border: none;
+    }
+    .user-image{
+        width: 28%;
+        right: 0px;
+        position: absolute;
+        margin-right: 0;
+        outline: none;
     }
 
 }

@@ -26,6 +26,11 @@
     border: 1px solid #eaeaea;
     align-items: center;
 }
+.singers-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
 .singers{
     display: flex;
     flex-flow: column;
@@ -35,4 +40,21 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 800px){
+    .songs-display-sidebar{
+        width: 100%
+    }
+    .singers-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    .singers-image{
+        border: 1px solid red;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
 }

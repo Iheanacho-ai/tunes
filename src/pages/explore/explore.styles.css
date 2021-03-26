@@ -76,9 +76,16 @@
 
 @media screen and (max-width: 800px){
     
+    .explore-aside-bar-div{
+        display: none;
+    }
     
+    .explore-side-bar{
+        width: 100%;
+
+    }
     .side-bar-div{
-        width: 80%;
+        width: 100%;
         display: block;
 
     }

@@ -25,12 +25,17 @@
 
 
 @media screen and (max-width: 800px){
+    .music-container{
+        width: 96%;
+        margin: 0 auto;
+    
+    }
 
     .music-image{
         display: none;
     }
     audio{
-        width: 160px;
+        width: 240px;
         height: 34px;
         right: 3px;
         position: absolute;

@@ -10,11 +10,11 @@ const Explore = (props) => {
     return(
     <div className ='explore' >
         <div className = 'explore-aside-bar-div'>
-            <AsideBar searchMusic = {props.searchMusic} />
+            <AsideBar searchMusic = {props.searchMusic} color = 'grey'/>
         </div>
         
         <div className ='explore-side-bar' >
-            <ExploreHeader/>
+            <ExploreHeader searchMusic = {props.searchMusic}/>
             <h2 className= 'explore-side-bar-header'>Listen to some of our carefully curated playlists </h2>
             <div className= 'explore-side-bar-container'>
                 {

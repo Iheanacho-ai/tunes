@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../component/header/header';
-import SignUpImg from '../../assets/signin5.jpg';
 import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
 import './signup-page.styles.css';
 
@@ -11,25 +10,36 @@ class SignUp extends React.Component{
 
         this.state = {
             email: '',
-            displayName: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         }
 
     }
 
     handleSubmit = async event => {
         event.preventDefault();
-        const { email, displayName, password } = this.state;
+        const { email, password, confirmPassword } = this.state;
 
-        try{
-            const { user } = await auth.createUserWithEmailAndPassword( email, password );
-            await createUserProfileDocument( user, { displayName });
-
-            this.setState({ email: '', displayName: '', password: ''});
-
-        }catch(error){
-            console.log('error creating user', error);
+        if(password !== confirmPassword){
+            alert("password don't match");
+            return;
+        }else{
+            try{
+                const { user } = await auth.createUserWithEmailAndPassword( email, password );
+                await createUserProfileDocument( user );
+    
+                this.setState({ email: '', password: '', confirmPassword});
+    
+            }catch(error){
+                console.log('error creating user', error);
+            }
         }
+
+
+
+        
+
+        
 
     }
 
@@ -56,16 +66,16 @@ class SignUp extends React.Component{
                             <p className='already-account' >Already have an account? 
                             <span><Link to = 'signin' > Log in</Link></span></p>
     
-                            <input type="email" name="email" value = { this.state.email } onChange={this.handleChange} />
-                            <input type="text" name="displayName" value = { this.state.displayName } onChange={this.handleChange} />
-                            <input type="password" name="password" value = { this.state.password } onChange={this.handleChange} />
+                            <input type="email" name="email" value = { this.state.email } onChange={this.handleChange} placeholder = 'email address' />
+                            <input type="password" name="password" value = { this.state.password } onChange={this.handleChange} placeholder = 'password'  />
+                            <input type="password" name="confirmPassword" value = { this.state.confirmPassword } onChange={this.handleChange} placeholder = 'confirm password'/>
     
     
                             <div className ='signup-form-button-div' ><button className ='signup-form-button'>Sign up</button></div>
     
                         </form>
                     </div>
-                    <div className = 'signup-banner' style={{backgroundImage:`url(${SignUpImg})`}}></div>
+                    <div className = 'signup-banner' style={{backgroundImage:`url(https://res.cloudinary.com/amarachi-2812/image/upload/v1616715738/signin5_dfz9ms.jpg)`}}></div>
                 </div>
             </div>
         )

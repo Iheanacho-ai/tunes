@@ -12,7 +12,7 @@ const config = {
     measurementId: "G-WFEKS24X56"
 };
 
-export const createUserProfileDocument = async ( userAuth, additionalData  ) => {
+export const createUserProfileDocument = async ( userAuth  ) => {
     if(!userAuth) return;
 
     const userRef = firestore.doc( `users/${userAuth.uid}`);
@@ -28,8 +28,7 @@ export const createUserProfileDocument = async ( userAuth, additionalData  ) => 
                 displayName,
                 email,
                 createdAt,
-                photoURL,
-                ...additionalData
+                photoURL
             })
         }catch(error){
             console.log('error creating user', error);

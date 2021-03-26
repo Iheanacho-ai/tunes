@@ -7,7 +7,7 @@ import Spinner from '../../component/spinner/spinner';
 import MusicDiv from '../../component/music-div/music-div';
 import './genre-categories-playlist-songs.styles.css';
 
-const GenreCategoriesPlaylistSongs = ({genreCategoriesPlaylistSongs, PlayMusic, playASong}) => {
+const GenreCategoriesPlaylistSongs = ({genreCategoriesPlaylistSongs, PlayMusic, playASong, searchMusic}) => {
 
     const [ info, setInfo ] = useState(null)
 
@@ -15,53 +15,52 @@ const GenreCategoriesPlaylistSongs = ({genreCategoriesPlaylistSongs, PlayMusic, 
     return(
         <div className ='genre-categories-playlist-songs' >
             <div className = 'genre-categories-playlist-songs-aside-bar-div'>
-                <AsideBar />
+                <AsideBar searchMusic = {searchMusic} />
             </div>
             
             <div className ='genre-categories-playlist-songs-side-bar' >
-            {
-                genreCategoriesPlaylistSongs ? (
-                    <div className = 'genre-categories-playlist-songs-side-bar-div'>
-                        <div className='genre-categories-playlist-songs-header'>
-                            <div className='genre-categories-playlist-songs-header-container'>
-                                <div className='genre-categories-playlist-songs-header-image' style= {{ backgroundImage: `url(${genreCategoriesPlaylistSongs.image})`}}></div>
-                                <div className='genre-categories-playlist-songs-description'><h3>{genreCategoriesPlaylistSongs.name}</h3></div>
+                
+                {
+                    genreCategoriesPlaylistSongs ? (
+                        <div className = 'genre-categories-playlist-songs-side-bar-div'>
+                            <ExploreHeader searchMusic = {searchMusic}/>
+                            <div className='genre-categories-playlist-songs-header'>
+                                <div className='genre-categories-playlist-songs-header-container'>
+                                    <div className='genre-categories-playlist-songs-header-image' style= {{ backgroundImage: `url(${genreCategoriesPlaylistSongs.image})`}}></div>
+                                    <div className='genre-categories-playlist-songs-description'><h3>{genreCategoriesPlaylistSongs.name}</h3></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className= 'genre-categories-playlist-songs-box'>
-                            {
-                                genreCategoriesPlaylistSongs ? (
-                                    <div className= 'genre-categories-playlist-songs-songs-container'>
-                                        {genreCategoriesPlaylistSongs.items.map(({track}) => (
-                                            <div>
-                                                <div className = 'genre-categories-playlist-songs-song'>
-                                                    <div className='track-name' ><p>{track.name}</p></div>
-                                                    <div className= 'play-icon'  >
-                                                        <FontAwesomeIcon icon="play-circle" id= {track.id}  onClick = {PlayMusic} />
+                            <div className= 'genre-categories-playlist-songs-box'>
+                                {
+                                    genreCategoriesPlaylistSongs ? (
+                                        <div className= 'genre-categories-playlist-songs-songs-container'>
+                                            {genreCategoriesPlaylistSongs.items.map(({track}) => (
+                                                <div>
+                                                    <div className = 'genre-categories-playlist-songs-song'>
+                                                        <div className='track-name' ><p>{track.name}</p></div>
+                                                        <div className= 'play-icon'  >
+                                                            <FontAwesomeIcon icon="play-circle" id= {track.id}  onClick = {PlayMusic} />
+                                                        </div>
+                                                        <div className='track-artiste' ><p>{track.artists[0].name }</p></div>
+
                                                     </div>
-                                                    <div className='track-artiste' ><p>{track.artists[0].name }</p></div>
 
+                                                
                                                 </div>
-
-                                               
-                                            </div>
-                                        ))}
-                                    </div> 
-                                ) : <Spinner />
-                            }
+                                            ))}
+                                        </div> 
+                                    ) : <Spinner />
+                                }
+                            </div>
+        
                         </div>
-    
-                    </div>
-                ) : <Spinner/>
-            }
+                    ) : <Spinner/>
+                }
              
             </div>
 
-             <MusicDiv playASong= {playASong} /> 
-            
-
-  
+            <MusicDiv playASong= {playASong} /> 
 
         </div>
     );

@@ -77,8 +77,8 @@
 
 
 @media screen and (max-width: 800px){
-    .genre-categories-playlist-songs-side-bar{
-        width: 80%;
+    .genre-categories-playlist-songs-side-bar, .music-div{
+        width: 100%;
     }
     .genre-categories-playlist-songs-header{
         height: 320px;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SigninImg from '../../assets/signin3.jpg';
 import Header from '../../component/header/header';
 
 import { auth ,signInWithGoogle } from '../../firebase/firebase.utils';
@@ -55,8 +54,8 @@ class SignIn extends React.Component{
                                 <button className = 'google-btn' onClick = { signInWithGoogle } >Google</button>
                             </div>
 
-                            <input type="email" name="email" value = { this.state.email } onChange = {this.handleChange}/>
-                            <input type="password" name="password" value = { this.state.password } onChange = {this.handleChange}/>
+                            <input type="email" name="email" value = { this.state.email } onChange = {this.handleChange} placeholder = 'email address'/>
+                            <input type="password" name="password" value = { this.state.password } onChange = {this.handleChange} placeholder = 'password'/>
 
 
                             <div className= 'login-form-button-div' ><button className= 'login-form-button' >Log in</button></div>
@@ -66,7 +65,7 @@ class SignIn extends React.Component{
                         </form>
                         
                     </div>
-                    <div className = 'signin-banner' style={{backgroundImage:`url(${SigninImg})`}}></div>
+                    <div className = 'signin-banner' style={{backgroundImage:`url(https://res.cloudinary.com/amarachi-2812/image/upload/v1616715885/signin3_iqaozu.jpg)`}}></div>
                 </div>
             </div>
             

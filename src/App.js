@@ -176,10 +176,9 @@ const App = () => {
         artists: searchResponseData.artists.items,
         tracks: searchResponseData.tracks.items
       })
-      console.log(searchResponseData);
 
 
-      window.location.href = `${location}/songs`;
+      // window.location.href = `${location}/songs`;
 
 
     }
@@ -219,7 +218,7 @@ const App = () => {
       <Route exact path  = '/signup' render={() => currentUser ? (<Redirect to= '/explore' />) : ( <SignUpPage/> )} />
       <Route exact path = '/explore' component= {() => <Explore genreCategories = {genreCategories} getGenrePlaylist = {getGenrePlaylist} searchMusic ={searchMusic} /> } />
       <Route exact path = '/genre-playlist' component= {() => <GenreCategoriesPlaylist genreCategoriesPlaylist = {genreCategoriesPlaylist} getGenrePlaylistSongs= {getGenrePlaylistSongs} searchMusic ={searchMusic} /> } />
-      <Route exact path = '/:location/songs' component= {() => <SongDisplay songs={songs} PlayMusic= {PlayMusic}/> } />
+      <Route exact path = '/:location/songs' component= {() => <SongDisplay songs={songs} PlayMusic= {PlayMusic} searchMusic ={searchMusic} /> } />
       <Route exact path = '/genre-playlist/playlist' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} PlayMusic= {PlayMusic} playASong = {playASong} searchMusic ={searchMusic} /> } />
       <Route exact path = '/discover' component = { Discover} />
 

@@ -3,16 +3,19 @@
 }
 .landing-page-container{
     width: 100%;
-    height: 80vh;
-    border: 1px solid red;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
 
 }
 .landing-page-info{
     width: 60vw;
     height: 300px;
+    color: #fff;
     margin: 0 auto;
     display: flex;
     flex-flow: column;
@@ -30,8 +33,11 @@
     padding: 10px;
     background-color: #ef5466;
     border: 1px solid #ef5466;
+    outline: none;
+
+}
+.landing-page-button a{
     color: #fff;
     font-size: 14px;
-    font-family: 'Roboto, sans-serif';
 
 }

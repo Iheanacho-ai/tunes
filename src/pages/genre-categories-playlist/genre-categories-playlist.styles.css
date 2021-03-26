@@ -28,8 +28,16 @@
 
 
 @media screen and (max-width: 800px){
-    .genre-categories-side-bar{
+    
+    .genre-categories-playlist-side-bar{
+        width: 100%;
+
+    }
+    .genre-categories-playlist-side-bar-container{
         width: 80%;
+    }
+    .genre-categories-side-bar{
+        
         display: block;
         
     }

@@ -9,11 +9,11 @@ const GenreCategoriesPlaylist = (props) => {
     return(
         <div className ='genre-categories-playlist' >
             <div className = 'genre-categories-playlist-aside-bar-div'>
-                <AsideBar  />
+                <AsideBar searchMusic = {props.searchMusic} />
             </div>
 
             <div className= 'genre-categories-playlist-side-bar'>
-                <ExploreHeader/>
+                <ExploreHeader searchMusic = {props.searchMusic}/>
                 
 
                 <div className= 'genre-categories-playlist-side-bar-container'>
