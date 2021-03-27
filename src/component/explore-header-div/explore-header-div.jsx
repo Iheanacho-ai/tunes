@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../../firebase/firebase.utils';
+import Img from '../../assets/image.jpg';
 import './explore-header-div.styles.css';
 
 
@@ -20,7 +21,9 @@ const ExploreHeader = (props) => {
     return(
         <div className = 'header-div' >
             <input type="search" name="search" className="search-mobile-input" placeholder = 'Search for songs, artistes' value ={searchValue} onChange = {handleChange} onKeyPress = {(e) => props.searchMusic(e, searchValue)}/>
-            <div className= 'user-image' onClick = { toggleMenuNav }></div>
+            <div className= 'user-image' onClick = { toggleMenuNav } style= {{
+               backgroundImage: `url(${Img})`
+            }}  ></div>
 
             { 
                 hidden ? null : 

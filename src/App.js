@@ -39,31 +39,31 @@ const App = () => {
   const location = window.location;
 
 
-    let unsubscribeFromAuth = null
+  let unsubscribeFromAuth = null
 
-    useEffect(()=> {
-      unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-        
-        if( userAuth ){
-          const userRef = await createUserProfileDocument(userAuth)
+  useEffect(()=> {
+    unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      
+      if( userAuth ){
+        const userRef = await createUserProfileDocument(userAuth)
 
-          userRef.onSnapshot(snapShot => {
-            setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
-              
-            })
-          });
-        }else{
-          setCurrentUser( userAuth );
-        }
-      })
-
-      return() => {
-       unsubscribeFromAuth();
-
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+            
+          })
+        });
+      }else{
+        setCurrentUser( userAuth );
       }
-    },[]
+    })
+
+    return() => {
+      unsubscribeFromAuth();
+
+    }
+  },[]
   )
 
 

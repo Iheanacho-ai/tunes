@@ -32,16 +32,6 @@
 .explore-side-bar-header{
     text-align: center;
 }
-.user-image{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: blue;
-    cursor: pointer;
-    float: right;
-    margin-right: 60px;
-    line-height: 56px;
-}
 .explore-side-bar-container{
     width: 80%;
     margin: 0 auto;
@@ -91,6 +81,11 @@
     }
     .side-bar{
         margin-bottom: 20px;
+    }
+    
+    .explore-side-bar-header{
+        width: 90%;
+        margin: 25px auto;
     }
 
     .genre-box{
