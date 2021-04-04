@@ -28,8 +28,8 @@ const ExploreHeader = (props) => {
             { 
                 hidden ? null : 
                 
-                <div className = 'user-toggle-menu' >
-                    <div onClick = {() => auth.signOut()}> Log Out </div>
+                <div className = 'user-toggle-menu' onClick = {() => auth.signOut()}>
+                    <div > Log Out </div>
                 </div> 
             }
         </div>

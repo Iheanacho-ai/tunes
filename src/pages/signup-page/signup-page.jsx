@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../component/header/header';
-import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument, signInWithGoogle, signInWithFacebook } from '../../firebase/firebase.utils';
 import './signup-page.styles.css';
 
 class SignUp extends React.Component{
@@ -11,7 +11,8 @@ class SignUp extends React.Component{
         this.state = {
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            signUpStatus: 'Sign Up'
         }
 
     }
@@ -24,6 +25,7 @@ class SignUp extends React.Component{
             alert("password don't match");
             return;
         }else{
+            this.setState({ signUpStatus: 'Signing up...'})
             try{
                 const { user } = await auth.createUserWithEmailAndPassword( email, password );
                 await createUserProfileDocument( user );
@@ -59,7 +61,7 @@ class SignUp extends React.Component{
                         <form onSubmit = { this.handleSubmit }>
     
                             <div className = 'signup-button-div button-div'>
-                                <button className = 'facebook-btn'>Facebook</button>
+                                <button className = 'facebook-btn' onClick = { signInWithFacebook }>Facebook</button>
                                 <button className = 'google-btn' onClick = { signInWithGoogle }>Google</button>
                             </div>
     
@@ -71,7 +73,7 @@ class SignUp extends React.Component{
                             <input type="password" name="confirmPassword" value = { this.state.confirmPassword } onChange={this.handleChange} placeholder = 'confirm password'/>
     
     
-                            <div className ='signup-form-button-div' ><button className ='signup-form-button'>Sign up</button></div>
+                            <div className ='signup-form-button-div' ><button className ='signup-form-button'>{this.state.signUpStatus}</button></div>
     
                         </form>
                     </div>
@@ -82,4 +84,4 @@ class SignUp extends React.Component{
     }
 };
 
-export default SignUp;
+export default SignUp; 

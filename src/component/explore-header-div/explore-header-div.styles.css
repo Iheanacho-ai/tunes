@@ -36,16 +36,12 @@
     right: 0px;
     z-index: 5;
     text-align: left;
-    color: #111;
+    background-color: #111;
+    color: #eaeaea;
     border: 1px solid #111;
     
 }
-.user-toggle-menu:hover{
-   background-color: #eaeaea;
-   border: 1px solid #eaeaea;
-    color: #111;
-    
-}
+
 .user-toggle-menu div{
     width: 100%;
     height: 100%;

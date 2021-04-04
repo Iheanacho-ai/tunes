@@ -77,6 +77,9 @@
 
 
 @media screen and (max-width: 800px){
+    .play-icon{
+        font-size: 32px;
+    }
     .genre-categories-playlist-songs-side-bar, .music-div{
         width: 100%;
     }

@@ -178,7 +178,9 @@ const App = () => {
       })
 
 
-      // window.location.href = `${location}/songs`;
+
+      console.log(1)
+
 
 
     }
@@ -189,7 +191,17 @@ const App = () => {
 
   }
 
-  useEffect(() => console.log(songs), [songs]);
+  
+
+   useEffect(() =>{
+      if(songs){
+        console.log(songs);
+        window.location.href = `${location}/songs`;
+        
+      }}, [songs])
+
+
+
 
   
   const PlayMusic = (e) => {

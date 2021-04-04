@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../component/header/header';
 
-import { auth ,signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth ,signInWithGoogle, signInWithFacebook } from '../../firebase/firebase.utils';
 
 import './signin-page.styles.css';
 
@@ -13,7 +13,8 @@ class SignIn extends React.Component{
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            LoginStatus: 'Log in'
         }
     }
 
@@ -24,6 +25,7 @@ class SignIn extends React.Component{
         const { email, password } = this.state;
 
         try {
+            this.setState({LoginStatus : 'Logging in...'})
             await auth.signInWithEmailAndPassword( email, password );
             this.setState({ email: '', password: ''});
         } catch (error) {
@@ -50,7 +52,7 @@ class SignIn extends React.Component{
                         <form onSubmit = {this.handleSubmit} >
                             
                             <div className = 'button-div login-margin-bottom'>
-                                <button className = 'facebook-btn'>Facebook</button>
+                                <button className = 'facebook-btn' onClick = { signInWithFacebook }>Facebook</button>
                                 <button className = 'google-btn' onClick = { signInWithGoogle } >Google</button>
                             </div>
 
@@ -58,7 +60,7 @@ class SignIn extends React.Component{
                             <input type="password" name="password" value = { this.state.password } onChange = {this.handleChange} placeholder = 'password'/>
 
 
-                            <div className= 'login-form-button-div' ><button className= 'login-form-button' >Log in</button></div>
+                            <div className= 'login-form-button-div' ><button className= 'login-form-button' >{this.state.LoginStatus}</button></div>
                             
                             <p className= 'register-here'>Don't have an account? <span><Link to = 'signup' > Sign up</Link></span></p>
 

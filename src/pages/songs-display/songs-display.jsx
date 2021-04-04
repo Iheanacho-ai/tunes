@@ -21,7 +21,7 @@ const SongDisplay = ({songs, PlayMusic, searchMusic}) => {
                     <p><a href="#artistes">Artistes</a></p>
                 </div>
                     {
-                        PlayMusic ? (
+                        songs ? (
                             <div className = 'songs-display-asidebar-container'>
             
                                 <div className = 'songs-display-result'>
