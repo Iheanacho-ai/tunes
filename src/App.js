@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React,{ useState, useEffect } from 'react';
-import { Route, Redirect, Link } from 'react-router-dom';
+import { Route, Redirect, Link, useHistory } from 'react-router-dom';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -32,10 +32,12 @@ const App = () => {
   const [genreCategoriesPlaylist, setGenreCategoriesPlaylist ] = useState(null);
   const [genreCategoriesPlaylistSongs, setGenreCategoriesPlaylistSongs ] = useState(null);
   const [ playASong, setPlayASong ] = useState(null);
+  const [ playANewSong, setplayANewSong ] = useState(null);
   const [songs, setSongs ] = useState(null);
 
   const clientID = '1fd358f724e042788ce8e3cc381b552f';
   const clientSecret = 'db78ee8fc24241f7910d939e59e4feb1';
+  const history = useHistory();
   const location = window.location;
 
 
@@ -180,6 +182,7 @@ const App = () => {
 
 
       console.log(1)
+      history.push(`/songs`)
 
 
 
@@ -193,12 +196,6 @@ const App = () => {
 
   
 
-   useEffect(() =>{
-      if(songs){
-        console.log(songs);
-        window.location.href = `${location}/songs`;
-        
-      }}, [songs])
 
 
 
@@ -212,6 +209,26 @@ const App = () => {
 
 
   }
+
+ 
+  const PlaySongs = (e) => {
+
+    console.log(songs, 'songs' )
+    
+    const songId = e.target.id;
+    const songObject = songs.tracks.find(track => track.id === songId);
+
+    console.log(e.target)
+
+    console.log(songId, 'songID', '...', songs.tracks[0].id, 'trackID')
+
+    console.log(songObject)
+    setplayANewSong(songObject,'musicObject' );
+
+
+
+  } 
+
 
 
   
@@ -230,7 +247,7 @@ const App = () => {
       <Route exact path  = '/signup' render={() => currentUser ? (<Redirect to= '/explore' />) : ( <SignUpPage/> )} />
       <Route exact path = '/explore' component= {() => <Explore genreCategories = {genreCategories} getGenrePlaylist = {getGenrePlaylist} searchMusic ={searchMusic} /> } />
       <Route exact path = '/genre-playlist' component= {() => <GenreCategoriesPlaylist genreCategoriesPlaylist = {genreCategoriesPlaylist} getGenrePlaylistSongs= {getGenrePlaylistSongs} searchMusic ={searchMusic} /> } />
-      <Route exact path = '/:location/songs' component= {() => <SongDisplay songs={songs} PlayMusic= {PlayMusic} searchMusic ={searchMusic} /> } />
+      <Route exact path = '/songs' component= {() => <SongDisplay songs={songs} PlaySongs= {PlaySongs} searchMusic ={searchMusic} playANewSong = {playANewSong} /> } />
       <Route exact path = '/genre-playlist/playlist' component= {() => <GenreCategoriesPlaylistSongs genreCategoriesPlaylistSongs = {genreCategoriesPlaylistSongs} PlayMusic= {PlayMusic} playASong = {playASong} searchMusic ={searchMusic} /> } />
       <Route exact path = '/discover' component = { Discover} />
 

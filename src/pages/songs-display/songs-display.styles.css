@@ -1,5 +1,5 @@
 .songs-display-sidebar{
-    width: 80%;
+    width: 87%;
     right: 0;
     position: absolute;
 }
@@ -36,10 +36,11 @@
     flex-flow: column;
 }
 .singers-image{
-    border: 1px solid red;
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    background-size: cover;
+    background-position: center;
 }
 
 @media screen and (max-width: 800px){
@@ -52,7 +53,6 @@
         grid-gap: 20px;
     }
     .singers-image{
-        border: 1px solid red;
         width: 150px;
         height: 150px;
         border-radius: 50%;
